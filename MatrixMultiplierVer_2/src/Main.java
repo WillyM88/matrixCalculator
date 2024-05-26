@@ -22,13 +22,9 @@ public class Main {
                 {35, 33, 45}
         };
 
-        Matrix matrix1 = new Matrix(myMatrix);
-
-        matrix1.printMatrix();
-        matrix1.printMatrixWithPositions();
-
-        Matrix matrix2 = new Matrix();
-        matrix2.printMatrix();
+        MatrixOperations matrixAddition = new MatrixOperations(myMatrix, myOtherMatrix);
+        matrixAddition.printFirstMatrix_WithPositions();
+        matrixAddition.printSecondMatrix();
 
     }
 }

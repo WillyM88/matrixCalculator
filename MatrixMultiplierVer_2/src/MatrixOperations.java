@@ -44,8 +44,10 @@ public class MatrixOperations {
         if (!withPositions) {
             for (int i = 0; i < targetMatrix.length; i++) {
                 for (int j = 0; j < targetMatrix[0].length; j++) {
-                    System.out.print(targetMatrix[i][j] + " _ ");
-                    if (j == targetMatrix[0].length) {
+                    System.out.print(targetMatrix[i][j]);
+                    if (j < targetMatrix[0].length - 1) {
+                        System.out.print(" _ ");
+                    } else if (j == targetMatrix[0].length - 1) {
                         System.out.print("\n");
                     }
                 }
@@ -53,8 +55,10 @@ public class MatrixOperations {
         } else {
             for (int i = 0; i < targetMatrix.length; i++) {
                 for (int j = 0; j < targetMatrix[0].length; j++) {
-                    System.out.print("(i:" + i + "j:" + j + ")=" + targetMatrix[i][j] + " _ ");
-                    if (j == targetMatrix[0].length) {
+                    System.out.print("(i:" + i + ",j:" + j + ")=" + targetMatrix[i][j]);
+                    if (j < targetMatrix[0].length - 1) {
+                        System.out.print(" _ ");
+                    } else if (j == targetMatrix[0].length - 1) {
                         System.out.print("\n");
                     }
                 }
@@ -89,11 +93,7 @@ public class MatrixOperations {
     // Matrix operations----------------------------------------------------------------------:
 
     private boolean verifySum(int[][] firstMatrix, int[][] secondMatrix) {
-        if (firstMatrix.length == secondMatrix.length && firstMatrix[0].length == secondMatrix[0].length) {
-            return true;
-        } else {
-            return false;
-        }
+        return firstMatrix.length == secondMatrix.length && firstMatrix[0].length == secondMatrix[0].length;
     }
 
     public int[][] sumMatrices(int[][] firstMatrix, int[][] secondMatrix) {
@@ -110,21 +110,26 @@ public class MatrixOperations {
             return firstMatrix;
         }
     }
-    // this code is from my other version, it is a matrix myltiplier
-//    int counter = 0;
-//
-//        for (int i = 0; i < m1_fils; i++) {
-//        for (int y = 0; y < m2_cols; y++) {
-//            int total = 0;
-//            for (int j = 0; j < m1_cols; j++) {
-//                int mult = (m1[i][j] * m2[j][y]);
-//                total += mult;
-//                if (j == m1_cols - 1) {
-//                    answerStore[counter] = total;
-//                    counter++;
-//                    total = 0;
+    // matrix multiplier
+
+//    public int[][] multiplyMatrices() {
+//        int counter = 0;
+//        int[] returnValue = new int[this.firstMatrix.length * this.secondMatrix[0].length];
+//        for (int i = 0; i < this.firstMatrix.length; i++) {
+//            for (int y = 0; y < this.secondMatrix[0].length; y++) {
+//                int total = 0;
+//                for (int j = 0; j < this.firstMatrix[0].length; j++) {
+//                    int mult = (firstMatrix[i][j] * secondMatrix[j][y]);
+//                    total += mult;
+//                    if (j == firstMatrix[0].length - 1) {
+//                        returnValue[counter] = total;
+//                        counter++;
+//                        total = 0;
+//                    }
 //                }
 //            }
 //        }
+//        return returnValue;
 //    }
+
 }
